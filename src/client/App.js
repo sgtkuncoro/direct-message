@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 
-export default class App extends Component {
+import DirectMessage from "./Containers/DirectMessage/DirectMessage";
+class App extends Component {
   render() {
-    return <div>Welcome to React Boilerplate App</div>;
+    return (
+      <div>
+        <Layout>
+          <DirectMessage />
+        </Layout>
+      </div>
+    );
   }
 }
+
+export default DirectMessage;
