@@ -1,5 +1,7 @@
 import React from "react";
 
+import classes from "./FormMessage.css";
+
 const FormMessage = props => {
   return (
     <div>
@@ -7,14 +9,14 @@ const FormMessage = props => {
       <form>
         <div>
           <label>Phone Number : </label>
-          <input type="text" />
+          <input className={classes.Input} type="text" />
         </div>
         <div>
-          <label>Text</label>
-          <textarea />
+          <label>Text : </label>
+          <textarea className={classes.Input} />
         </div>
         <div>
-          <button>Direct</button>
+          <button className={classes.Button}>Direct</button>
         </div>
       </form>
     </div>

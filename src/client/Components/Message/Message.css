@@ -1,0 +1,23 @@
+.Message {
+  width: 100%;
+  margin: auto;
+  overflow: overlay;
+}
+
+@media (min-width: 500px) and (min-height: 400px) {
+  .Message {
+    width: 350px;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 400px) {
+  .Message {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 700px) {
+  .Message {
+    width: 700px;
+  }
+}

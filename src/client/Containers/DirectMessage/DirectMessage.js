@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Aux from "../../Hoc/Auxiliary";
-import FormMessage from "../../Components/Message/Form/FormMessage";
+import Message from "../../Components/Message/Message";
 
 class DirectMessage extends Component {
   render() {
     return (
       <Aux>
-        <FormMessage />
+        <Message />
       </Aux>
     );
   }
