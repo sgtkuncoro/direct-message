@@ -4,6 +4,8 @@
   "description": "send WhatsApp or Telegram messages without adding contact",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist/public",
     "build": "webpack",
     "build-babel": "npm run build-babel-server && npm run build-babel-client",
     "build-babel-server": "babel src/server --out-dir ./dist",
@@ -30,10 +32,11 @@
   "bugs": {
     "url": "https://github.com/sgtkuncoro/direct-message/issues"
   },
-  "homepage": "https://github.com/sgtkuncoro/direct-message#readme",
+  "homepage": "https://sgtkuncoro.github.io/direct-message",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "express": "^4.16.4",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   },
