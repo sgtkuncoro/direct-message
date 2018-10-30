@@ -5,9 +5,23 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const moduleObj = {
   loaders: [
     {
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       loaders: ["babel-loader"]
+    },
+    {
+      test: /\.css$/,
+      use: [
+        require.resolve("style-loader"),
+        {
+          loader: require.resolve("css-loader"),
+          options: {
+            importLoaders: 1,
+            modules: true,
+            localIdentName: "[name]__[local]__[hash:base64:5]"
+          }
+        }
+      ]
     }
   ]
 };
