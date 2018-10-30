@@ -16,7 +16,9 @@ const FormMessage = props => {
           <textarea className={classes.Input} />
         </div>
         <div>
-          <button className={classes.Button}>Direct</button>
+          <button type="button" className={classes.Button}>
+            Direct
+          </button>
         </div>
       </form>
     </div>
