@@ -6,11 +6,12 @@ const moduleObj = {
   loaders: [
     {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: ["node_modules"],
       loaders: ["babel-loader"]
     },
     {
       test: /\.css$/,
+      exclude: ['node_modules'],
       use: [
         require.resolve("style-loader"),
         {
