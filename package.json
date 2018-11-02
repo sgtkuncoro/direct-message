@@ -9,10 +9,10 @@
     "build-babel-server": "babel src/server --out-dir ./dist",
     "build-babel-client": "babel src/client --copy-files --out-dir ./dist/public",
     "dev:watch": "webpack --watch --progress",
-    "dev:server": "rimraf dist && npm run build && nodemon ./dist/server.js",
-    "start": "concurrently \"npm run dev:server\" \"npm run dev:watch\" ",
+    "dev:server": "nodemon ./dist/server.js",
+    "start": "rimraf dist && npm run build && concurrently \"npm run dev:server\" \"npm run dev:watch\" ",
     "prod:watch": "rimraf dist && webpack --progress",
-    "predeploy": "npm run prod:watch",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist/public",
     "test": "jest ./src",
     "clean": "rimraf dist node_modules"
