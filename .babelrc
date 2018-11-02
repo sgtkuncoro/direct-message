@@ -1,4 +1,14 @@
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": []
+  "plugins": [],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env"
+        ],
+        "@babel/preset-react"
+      ]
+    }
+  }
 }
