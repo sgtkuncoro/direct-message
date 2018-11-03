@@ -6,12 +6,17 @@ const moduleObj = {
   loaders: [
     {
       test: /\.(js|jsx)$/,
-      exclude: ["node_modules"],
-      loaders: ["babel-loader"]
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        }
+      }
     },
     {
       test: /\.css$/,
-      exclude: ['node_modules'],
+      exclude: ["node_modules"],
       use: [
         require.resolve("style-loader"),
         {

@@ -1,25 +1,18 @@
-.Input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  outline: none;
-}
-
 .Button {
-  background-color: #4caf50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
   outline: none;
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
 }
 
 .Button :hover {
-  background-color: #45a049;
+  background-color: royalblue;
+}
+
+.FormWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }

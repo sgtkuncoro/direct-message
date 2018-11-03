@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./CodeSelector.css";
+import classes from "./CountrySelect.css";
 
-const CodeSelector = props => {
+const CountrySelect = props => {
   return (
     <div>
       <select className={classes.InputSelect} id="country" name="country">
@@ -15,6 +15,6 @@ const CodeSelector = props => {
   );
 };
 
-CodeSelector.propTypes = {};
+CountrySelect.propTypes = {};
 
-export default CodeSelector;
+export default CountrySelect;
