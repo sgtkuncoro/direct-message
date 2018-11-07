@@ -5,7 +5,12 @@ import classes from "./PhoneInput.css";
 const PhoneInput = props => {
   return (
     <div>
-      <input type="tel" className={classes.Input} type="text" />
+      <input
+        onChange={props.onChange}
+        type="tel"
+        className={classes.Input}
+        type="text"
+      />
     </div>
   );
 };

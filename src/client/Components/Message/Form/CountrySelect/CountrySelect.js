@@ -1,19 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import classes from "./CountrySelect.css";
 
-const CountrySelect = props => {
-  return (
-    <div>
-      <select className={classes.InputSelect} id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
-      </select>
-    </div>
-  );
-};
+class CountrySelect extends Component {
+  render() {
+    return (
+      <div>
+        <select
+          onChange={this.props.onChange}
+          className={classes.InputSelect}
+          id="country"
+          name="country"
+        >
+          <option value="62">Indonesia</option>
+          <option value="65">Singapure</option>
+          <option value="60">Malaysia</option>
+        </select>
+      </div>
+    );
+  }
+}
 
 CountrySelect.propTypes = {};
 
