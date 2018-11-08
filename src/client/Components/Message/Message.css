@@ -2,6 +2,9 @@
   width: 100%;
   margin: auto;
   overflow: overlay;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 500px) and (min-height: 400px) {

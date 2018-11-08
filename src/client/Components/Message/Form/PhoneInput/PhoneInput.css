@@ -3,7 +3,15 @@
   outline: none;
   vertical-align: middle;
   margin: 5px 10px 5px 0;
-  padding: 10px;
+  padding: 5px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 0;
+  border-bottom: 1px;
+  border-color: #ddd;
+  border-style: solid;
+}
+@media screen and (max-width: 430px) {
+  .Input {
+    width: 100%;
+  }
 }
