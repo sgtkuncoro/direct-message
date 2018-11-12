@@ -1,14 +1,18 @@
 const path = require("path");
+const merge = require("webpack-merge");
 const nodeExternals = require("webpack-node-externals");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-const moduleObj = {
-  loaders: [
+const dev = require("./webpack/webpack.dev");
+const prod = require("./webpack/webpack.prod");
+
+const mode = process.env.NODE_ENV === "production" ? prod : dev;
+
+const modules = {
+  rules: [
     {
       test: /\.(js|jsx)$/,
-      exclude: [
-        path.resolve(__dirname, "node_modules"),
-      ],
+      exclude: /node_modules/,
       use: {
         loader: "babel-loader",
         options: {
@@ -18,7 +22,7 @@ const moduleObj = {
     },
     {
       test: /\.css$/,
-      exclude: ["node_modules"],
+      exclude: /node_modules/,
       use: [
         require.resolve("style-loader"),
         {
@@ -34,7 +38,7 @@ const moduleObj = {
   ]
 };
 
-const client = {
+const client = merge(mode, {
   entry: {
     client: "./src/client/index.js"
   },
@@ -43,15 +47,15 @@ const client = {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist/public")
   },
-  module: moduleObj,
+  module: modules,
   plugins: [
     new HtmlWebPackPlugin({
       template: "src/client/index.html"
     })
   ]
-};
+});
 
-const server = {
+const server = merge(mode, {
   entry: {
     server: "./src/server/index.js"
   },
@@ -60,8 +64,8 @@ const server = {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist")
   },
-  module: moduleObj,
+  module: modules,
   externals: [nodeExternals()]
-};
+});
 
 module.exports = [client, server];
