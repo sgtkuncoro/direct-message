@@ -11,8 +11,8 @@
     "dev:watch": "webpack --watch --progress",
     "dev:server": "nodemon ./dist/server.js",
     "start": "rimraf dist && npm run build && concurrently \"npm run dev:server\" \"npm run dev:watch\" ",
-    "prod:watch": "rimraf dist && webpack --progress",
-    "predeploy": "npm run build",
+    "prod:build": "rimraf dist &&NODE_ENV=production webpack --progress",
+    "predeploy": "npm run prod:build",
     "deploy": "gh-pages -d dist/public",
     "test": "jest ./src",
     "clean": "rimraf dist node_modules"
