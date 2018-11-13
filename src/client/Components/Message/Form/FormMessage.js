@@ -7,7 +7,8 @@ import PhoneInput from "./PhoneInput/PhoneInput";
 class FormMessage extends Component {
   state = {
     countryCode: 62,
-    phoneNumber: null
+    phoneNumber: null,
+    numberError: false
   };
 
   countryOnChange = event => {
@@ -16,24 +17,43 @@ class FormMessage extends Component {
 
   numberOnchange = event => {
     this.setState({
-      phoneNumber: `${this.state.countryCode}${event.target.value}`
+      phoneNumber: `${this.state.countryCode}${event.target.value}`,
+      numberError: false
     });
   };
 
   handleOnClick = () => {
-    window.open(
-      `https://api.whatsapp.com/send?phone=${this.state.phoneNumber}`
-    );
+    const regex = /^([1-9]{2})(\d{11})$/g;
+    const match = regex.test(this.state.phoneNumber);
+    if (match) {
+      window.open(
+        `https://api.whatsapp.com/send?phone=${this.state.phoneNumber}`
+      );
+    } else {
+      this.setState({ numberError: true });
+      const self = this;
+      setTimeout(() => {
+        self.setState({ numberError: false });
+      }, 5000);
+    }
   };
 
   render() {
-    console.log(this.state.phoneNumber);
     return (
-      <form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          this.handleOnClick();
+        }}
+      >
         <div className={classes.FormWrapper}>
           <div className={classes.FormGroup}>
             <CountrySelect onChange={this.countryOnChange} />
-            <PhoneInput onChange={this.numberOnchange} />
+            <PhoneInput
+              error={this.state.numberError}
+              onChange={this.numberOnchange}
+              country={this.state.countryCode}
+            />
             <button
               onClick={this.handleOnClick}
               type="button"

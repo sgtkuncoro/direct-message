@@ -10,6 +10,15 @@
   border-color: #ddd;
   border-style: solid;
 }
+.InputGroup {
+  display: flex;
+  flex-flow: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.Code {
+  font-size: 13px;
+}
 @media screen and (max-width: 430px) {
   .Input {
     width: 100%;
